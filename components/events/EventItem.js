@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import classes from './EventItem.module.css';
+import Button from './ui/button';
 
 export default function EventItem(props) {
   const { title, image, date, location, id } = props;
@@ -9,7 +9,7 @@ export default function EventItem(props) {
     year: 'numeric',
   });
   const formattedAddress = location.replace(', ', '\n');
-  const explorelink = `/events${id}`;
+  const exploreLink = `/events${id}`;
   return (
     <li className={classes.item}>
       <img src={'/' + image} alt={title} />
@@ -24,7 +24,7 @@ export default function EventItem(props) {
           </div>
         </div>
         <div className={classes.actions}>
-          <Link href={explorelink}>Explore Event</Link>
+          <Button link={exploreLink}>Explore event</Button>
         </div>
       </div>
     </li>
