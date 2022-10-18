@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import EventContent from '../../components/event-detail/event-content';
 import EventLogistics from '../../components/event-detail/event-logistics';
 import EventSummary from '../../components/event-detail/event-summary';
+import ErrorAlert from '../../components/ui/error-alert';
 import { getEventById } from '../../dummy-data';
 
 export default function EventDetailPage() {
@@ -13,7 +14,9 @@ export default function EventDetailPage() {
 
   if (!event) {
     return (
-      <h1 style={{ textAlign: 'center', margin: '200px' }}>No event found!</h1>
+      <ErrorAlert>
+        <h1 style={{ textAlign: 'center' }}>No event found!</h1>
+      </ErrorAlert>
     );
   }
 
